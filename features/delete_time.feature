@@ -1,32 +1,20 @@
 Feature: Delete the time for a country
-  Scenario: Able to delete time for Singapore using swipe
+  Scenario Outline: Able to delete time for Singapore using swipe
     Given I am on World Clock Page
-    When I left swipe Singapore
+    When I left swipe <Country>
     Then I should see delete button
 
     When I click on delete button
-    Then I should see time field of Singapore is deleted
+    Then I should see time field of <Country> is deleted
 
-  Scenario: Able to delete time for London using Edit
-    Given I am on World Clock Page
-    When I click on Edit
-    Then I shoould see minus icon
+    Examples:
+      |Country|
+      |Singapore|
+      |London|
+      |India|
+      |San-francisco|
 
-    When I click on minus icon
-    Then I should see delete button
-
-    When I click on delete button
-    Then I should see time field of London is deleted
-
-  Scenario: Able to delete time for India using swipe
-    Given I am on World Clock Page
-    When I left swipe India
-    Then I should see delete button
-
-    When I click on delete button
-    Then I should see time field of India is deleted
-
-  Scenario: Able to delete time for Tokyo using swipe
+  Scenario Outline: Able to delete time for London using Edit
     Given I am on World Clock Page
     When I click on Edit
     Then I should see minus icon
@@ -35,4 +23,13 @@ Feature: Delete the time for a country
     Then I should see delete button
 
     When I click on delete button
-    Then I should see time field of Tokyo is deleted
+    Then I should see time field of <Country> is deleted
+
+    Examples:
+      |Country|
+      |Singapore|
+      |London|
+      |India|
+      |San-francisco|
+
+
